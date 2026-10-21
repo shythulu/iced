@@ -102,7 +102,7 @@ dependencies = [
  "accesskit_unix",
  "accesskit_windows",
  "raw-window-handle",
- "winit",
+ "winit 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
 ]
 
 [[package]]
@@ -1666,6 +1666,11 @@ dependencies = [
 name = "dpi"
 version = "0.1.2"
 source = "git+https://github.com/pop-os/winit.git?tag=cosmic-0.14#261cda54017f98a12dc55569c864430fe6770366"
+
+[[package]]
+name = "dpi"
+version = "0.1.2"
+source = "git+https://github.com/shythulu/winit.git?branch=macosmetic#c33a2f9819b26fc35a6a3e3a424e8daea8c2f750"
 
 [[package]]
 name = "drm"
@@ -3254,6 +3259,9 @@ dependencies = [
  "iced_runtime",
  "log",
  "mundy",
+ "objc2 0.6.4",
+ "objc2-app-kit 0.3.2",
+ "objc2-foundation 0.3.2",
  "raw-window-handle",
  "rustc-hash 2.1.2",
  "rustix 0.38.44",
@@ -3266,8 +3274,8 @@ dependencies = [
  "web-sys",
  "winapi",
  "window_clipboard",
- "winit",
- "winit-core",
+ "winit 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
  "xkbcommon 0.7.0",
  "xkbcommon-dl",
  "xkeysym",
@@ -5491,6 +5499,16 @@ dependencies = [
  "bytemuck",
  "core_maths",
  "font-types",
+]
+
+[[package]]
+name = "redox_event"
+version = "0.4.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4ea3e412d205440c7b0218af26247226f979ed1201674cda7a33cc70609084b5"
+dependencies = [
+ "bitflags 2.13.2",
+ "libredox",
 ]
 
 [[package]]
@@ -8535,21 +8553,45 @@ dependencies = [
  "bitflags 2.13.2",
  "cfg_aliases",
  "cursor-icon",
- "dpi",
+ "dpi 0.1.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
  "libc",
  "raw-window-handle",
  "rustix 1.1.4",
  "smol_str",
  "tracing",
- "winit-android",
- "winit-appkit",
- "winit-common",
- "winit-core",
- "winit-orbital",
- "winit-uikit",
+ "winit-android 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+ "winit-appkit 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+ "winit-common 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+ "winit-orbital 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+ "winit-uikit 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+ "winit-web 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+ "winit-win32 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+]
+
+[[package]]
+name = "winit"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/shythulu/winit.git?branch=macosmetic#c33a2f9819b26fc35a6a3e3a424e8daea8c2f750"
+dependencies = [
+ "bitflags 2.13.2",
+ "cfg_aliases",
+ "cursor-icon",
+ "dpi 0.1.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "libc",
+ "raw-window-handle",
+ "rustix 1.1.4",
+ "smol_str",
+ "tracing",
+ "winit-android 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "winit-appkit 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "winit-common 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "winit-orbital 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "winit-uikit 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
  "winit-wayland",
- "winit-web",
- "winit-win32",
+ "winit-web 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "winit-win32 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
  "winit-x11",
 ]
 
@@ -8560,12 +8602,27 @@ source = "git+https://github.com/pop-os/winit.git?tag=cosmic-0.14#261cda54017f98
 dependencies = [
  "android-activity",
  "bitflags 2.13.2",
- "dpi",
+ "dpi 0.1.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
  "ndk",
  "raw-window-handle",
  "smol_str",
  "tracing",
- "winit-core",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+]
+
+[[package]]
+name = "winit-android"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/shythulu/winit.git?branch=macosmetic#c33a2f9819b26fc35a6a3e3a424e8daea8c2f750"
+dependencies = [
+ "android-activity",
+ "bitflags 2.13.2",
+ "dpi 0.1.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "ndk",
+ "raw-window-handle",
+ "smol_str",
+ "tracing",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
 ]
 
 [[package]]
@@ -8576,7 +8633,7 @@ dependencies = [
  "bitflags 2.13.2",
  "block2 0.6.2",
  "dispatch2",
- "dpi",
+ "dpi 0.1.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
  "objc2 0.6.4",
  "objc2-app-kit 0.3.2",
  "objc2-core-foundation",
@@ -8586,8 +8643,30 @@ dependencies = [
  "raw-window-handle",
  "smol_str",
  "tracing",
- "winit-common",
- "winit-core",
+ "winit-common 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+]
+
+[[package]]
+name = "winit-appkit"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/shythulu/winit.git?branch=macosmetic#c33a2f9819b26fc35a6a3e3a424e8daea8c2f750"
+dependencies = [
+ "bitflags 2.13.2",
+ "block2 0.6.2",
+ "dispatch2",
+ "dpi 0.1.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "objc2 0.6.4",
+ "objc2-app-kit 0.3.2",
+ "objc2-core-foundation",
+ "objc2-core-graphics",
+ "objc2-core-video",
+ "objc2-foundation 0.3.2",
+ "raw-window-handle",
+ "smol_str",
+ "tracing",
+ "winit-common 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
 ]
 
 [[package]]
@@ -8595,12 +8674,25 @@ name = "winit-common"
 version = "0.31.0-beta.2"
 source = "git+https://github.com/pop-os/winit.git?tag=cosmic-0.14#261cda54017f98a12dc55569c864430fe6770366"
 dependencies = [
+ "objc2 0.6.4",
+ "objc2-core-foundation",
+ "smol_str",
+ "tracing",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+ "xkbcommon-dl",
+]
+
+[[package]]
+name = "winit-common"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/shythulu/winit.git?branch=macosmetic#c33a2f9819b26fc35a6a3e3a424e8daea8c2f750"
+dependencies = [
  "memmap2 0.9.10",
  "objc2 0.6.4",
  "objc2-core-foundation",
  "smol_str",
  "tracing",
- "winit-core",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
  "x11-dl",
  "xkbcommon-dl",
 ]
@@ -8612,7 +8704,21 @@ source = "git+https://github.com/pop-os/winit.git?tag=cosmic-0.14#261cda54017f98
 dependencies = [
  "bitflags 2.13.2",
  "cursor-icon",
- "dpi",
+ "dpi 0.1.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+ "keyboard-types",
+ "raw-window-handle",
+ "smol_str",
+ "web-time",
+]
+
+[[package]]
+name = "winit-core"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/shythulu/winit.git?branch=macosmetic#c33a2f9819b26fc35a6a3e3a424e8daea8c2f750"
+dependencies = [
+ "bitflags 2.13.2",
+ "cursor-icon",
+ "dpi 0.1.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
  "keyboard-types",
  "raw-window-handle",
  "smol_str",
@@ -8625,14 +8731,30 @@ version = "0.31.0-beta.2"
 source = "git+https://github.com/pop-os/winit.git?tag=cosmic-0.14#261cda54017f98a12dc55569c864430fe6770366"
 dependencies = [
  "bitflags 2.13.2",
- "dpi",
+ "dpi 0.1.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
  "libredox",
  "orbclient",
  "raw-window-handle",
  "redox_syscall 0.7.4",
  "smol_str",
  "tracing",
- "winit-core",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+]
+
+[[package]]
+name = "winit-orbital"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/shythulu/winit.git?branch=macosmetic#c33a2f9819b26fc35a6a3e3a424e8daea8c2f750"
+dependencies = [
+ "bitflags 2.13.2",
+ "dpi 0.1.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "libredox",
+ "orbclient",
+ "raw-window-handle",
+ "redox_event",
+ "smol_str",
+ "tracing",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
 ]
 
 [[package]]
@@ -8643,7 +8765,7 @@ dependencies = [
  "bitflags 2.13.2",
  "block2 0.6.2",
  "dispatch2",
- "dpi",
+ "dpi 0.1.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
  "objc2 0.6.4",
  "objc2-core-foundation",
  "objc2-foundation 0.3.2",
@@ -8651,20 +8773,40 @@ dependencies = [
  "raw-window-handle",
  "smol_str",
  "tracing",
- "winit-common",
- "winit-core",
+ "winit-common 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+]
+
+[[package]]
+name = "winit-uikit"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/shythulu/winit.git?branch=macosmetic#c33a2f9819b26fc35a6a3e3a424e8daea8c2f750"
+dependencies = [
+ "bitflags 2.13.2",
+ "block2 0.6.2",
+ "dispatch2",
+ "dpi 0.1.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "objc2 0.6.4",
+ "objc2-core-foundation",
+ "objc2-foundation 0.3.2",
+ "objc2-ui-kit",
+ "raw-window-handle",
+ "smol_str",
+ "tracing",
+ "winit-common 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
 ]
 
 [[package]]
 name = "winit-wayland"
 version = "0.31.0-beta.2"
-source = "git+https://github.com/pop-os/winit.git?tag=cosmic-0.14#261cda54017f98a12dc55569c864430fe6770366"
+source = "git+https://github.com/shythulu/winit.git?branch=macosmetic#c33a2f9819b26fc35a6a3e3a424e8daea8c2f750"
 dependencies = [
  "ahash",
  "bitflags 2.13.2",
  "calloop 0.14.4",
  "cursor-icon",
- "dpi",
+ "dpi 0.1.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
  "libc",
  "memmap2 0.9.10",
  "raw-window-handle",
@@ -8677,8 +8819,8 @@ dependencies = [
  "wayland-client",
  "wayland-protocols 0.32.12",
  "wayland-protocols-plasma",
- "winit-common",
- "winit-core",
+ "winit-common 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
 ]
 
 [[package]]
@@ -8690,7 +8832,7 @@ dependencies = [
  "bitflags 2.13.2",
  "concurrent-queue",
  "cursor-icon",
- "dpi",
+ "dpi 0.1.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
  "js-sys",
  "pin-project",
  "raw-window-handle",
@@ -8700,7 +8842,29 @@ dependencies = [
  "wasm-bindgen-futures",
  "web-sys",
  "web-time",
- "winit-core",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+]
+
+[[package]]
+name = "winit-web"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/shythulu/winit.git?branch=macosmetic#c33a2f9819b26fc35a6a3e3a424e8daea8c2f750"
+dependencies = [
+ "atomic-waker",
+ "bitflags 2.13.2",
+ "concurrent-queue",
+ "cursor-icon",
+ "dpi 0.1.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "js-sys",
+ "pin-project",
+ "raw-window-handle",
+ "smol_str",
+ "tracing",
+ "wasm-bindgen",
+ "wasm-bindgen-futures",
+ "web-sys",
+ "web-time",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
 ]
 
 [[package]]
@@ -8710,33 +8874,49 @@ source = "git+https://github.com/pop-os/winit.git?tag=cosmic-0.14#261cda54017f98
 dependencies = [
  "bitflags 2.13.2",
  "cursor-icon",
- "dpi",
+ "dpi 0.1.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
  "raw-window-handle",
  "smol_str",
  "tracing",
  "unicode-segmentation",
  "windows-sys 0.59.0",
- "winit-core",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/pop-os/winit.git?tag=cosmic-0.14)",
+]
+
+[[package]]
+name = "winit-win32"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/shythulu/winit.git?branch=macosmetic#c33a2f9819b26fc35a6a3e3a424e8daea8c2f750"
+dependencies = [
+ "bitflags 2.13.2",
+ "cursor-icon",
+ "dpi 0.1.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "raw-window-handle",
+ "smol_str",
+ "tracing",
+ "unicode-segmentation",
+ "windows-sys 0.59.0",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
 ]
 
 [[package]]
 name = "winit-x11"
 version = "0.31.0-beta.2"
-source = "git+https://github.com/pop-os/winit.git?tag=cosmic-0.14#261cda54017f98a12dc55569c864430fe6770366"
+source = "git+https://github.com/shythulu/winit.git?branch=macosmetic#c33a2f9819b26fc35a6a3e3a424e8daea8c2f750"
 dependencies = [
  "bitflags 2.13.2",
  "bytemuck",
  "calloop 0.14.4",
  "cursor-icon",
- "dpi",
+ "dpi 0.1.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
  "libc",
  "percent-encoding",
  "raw-window-handle",
  "rustix 1.1.4",
  "smol_str",
  "tracing",
- "winit-common",
- "winit-core",
+ "winit-common 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
+ "winit-core 0.31.0-beta.2 (git+https://github.com/shythulu/winit.git?branch=macosmetic)",
  "x11-dl",
  "x11rb",
  "xkbcommon-dl",

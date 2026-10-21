@@ -41,6 +41,8 @@ pub mod conversion;
 pub mod platform_specific;
 
 mod error;
+#[cfg(target_os = "macos")]
+mod popup_macos;
 mod proxy;
 mod window;
 
@@ -407,6 +409,10 @@ where
 
                                 let visible = settings.visible;
 
+                                #[cfg(target_os = "macos")]
+                                let popup =
+                                    settings.platform_specific.popup_of.is_some();
+
                                 #[cfg(target_arch = "wasm32")]
                                 let target =
                                     settings.platform_specific.target.clone();
@@ -451,6 +457,16 @@ where
                                 if let Some(position) = position {
                                     window.set_outer_position(position);
                                 }
+
+                                // A popup is shown by `configure`, without taking focus.
+                                // iced's own show step would make it the key window.
+                                #[cfg(target_os = "macos")]
+                                let visible = if popup {
+                                    popup_macos::configure(&*window);
+                                    false
+                                } else {
+                                    visible
+                                };
 
                                 #[cfg(target_arch = "wasm32")]
                                 {
@@ -2113,6 +2129,19 @@ where
         Action::Window(action) => match action {
             window::Action::Open(id, settings, channel) => {
                 let monitor = window_manager.last_monitor();
+                // A popup's position is relative to its parent until resolved here,
+                // where the parent window is at hand.
+                #[cfg(target_os = "macos")]
+                let settings = {
+                    let mut settings = settings;
+                    let parent = settings
+                        .platform_specific
+                        .popup_of
+                        .and_then(|parent| window_manager.get(parent))
+                        .map(|parent| &*parent.raw);
+                    popup_macos::place(&mut settings, parent);
+                    settings
+                };
 
                 control_sender
                     .start_send(Control::CreateWindow {

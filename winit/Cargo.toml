@@ -83,6 +83,20 @@ xkbcommon-dl = { version = "0.4.1", optional = true }
 xkeysym = { version = "0.2.0", optional = true }
 rustix = { version = "0.38" }
 
+[target.'cfg(target_os = "macos")'.dependencies]
+# Popup windows: panel level, key behaviour and a tracking area for hover.
+objc2 = "0.6"
+objc2-app-kit = { version = "0.3", default-features = false, features = [
+    "std",
+    "NSResponder",
+    "NSTrackingArea",
+    "NSView",
+    "NSWindow",
+    "objc2-core-foundation",
+] }
+objc2-foundation = { version = "0.3", default-features = false, features = ["std", "NSGeometry"] }
+rwh_06 = { package = "raw-window-handle", version = "0.6" }
+
 [target.'cfg(target_os = "windows")'.dependencies]
 winapi.workspace = true
 

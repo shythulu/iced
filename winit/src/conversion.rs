@@ -176,6 +176,7 @@ pub fn window_attributes(
     {
         use winit::platform::macos::WindowAttributesMacOS;
 
+        let popup = settings.platform_specific.popup_of.is_some();
         attributes = attributes.with_platform_attributes(Box::new(
             WindowAttributesMacOS::default()
                 .with_title_hidden(settings.platform_specific.title_hidden)
@@ -184,8 +185,14 @@ pub fn window_attributes(
                 )
                 .with_fullsize_content_view(
                     settings.platform_specific.fullsize_content_view,
-                ),
+                )
+                // A popup is a panel that can never become key, so the window it
+                // opened from keeps keyboard focus, as with Flutter's popup windows.
+                .with_popup(popup),
         ));
+        if popup {
+            attributes = attributes.with_active(false);
+        }
     }
 
     #[cfg(target_os = "linux")]
