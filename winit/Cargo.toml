@@ -95,7 +95,9 @@ objc2-app-kit = { version = "0.3", default-features = false, features = [
     "objc2-core-foundation",
 ] }
 objc2-foundation = { version = "0.3", default-features = false, features = ["std", "NSGeometry"] }
-rwh_06 = { package = "raw-window-handle", version = "0.6" }
+# The same crate as the optional dependency above, under the same name: Cargo refuses
+# one crate under two names, which breaks the Linux build where both are enabled.
+raw-window-handle = "0.6"
 
 [target.'cfg(target_os = "windows")'.dependencies]
 winapi.workspace = true

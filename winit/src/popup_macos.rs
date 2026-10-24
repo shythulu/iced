@@ -106,7 +106,7 @@ pub fn configure(window: &dyn winit::window::Window) {
         NSPopUpMenuWindowLevel, NSTrackingArea, NSTrackingAreaOptions, NSView,
     };
     use objc2_foundation::NSRect;
-    use rwh_06::RawWindowHandle;
+    use raw_window_handle::RawWindowHandle;
 
     let Some(mtm) = MainThreadMarker::new() else {
         log::warn!("popup window configured off the main thread; skipped");
